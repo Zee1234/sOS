@@ -7,14 +7,13 @@ function lgc.copyTable(object) -- mpappas @ forums.coronalabs.com
       return obj
     elseif tableLookup[obj] then
       return tableLookup[obj]
-    else
-      local new_table = {}
-      tableLookup[obj] = new_table
-      for index, value in pairs(obj) do
-        new_table[_copy(index)] = _copy(value)
-      end
     end
-    return setmetatable(new_table, getmetatable(obj))
+    local newTable = {}
+    tableLookup[obj] = newTable
+    for index, value in pairs(obj) do
+      newTable[_copy(index)] = _copy(value)
+    end
+    return setmetatable(newTable, getmetatable(obj))
   end
   return _copy(object)
 end
