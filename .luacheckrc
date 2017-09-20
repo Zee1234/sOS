@@ -24,6 +24,9 @@ return {
       ignore = {
         '212'
       }
+    };
+    ['programs/'] = {
+      ignore = { '111', '112', '113' }
     }
   }
 }
